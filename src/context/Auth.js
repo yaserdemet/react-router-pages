@@ -1,6 +1,13 @@
 import { createContext, useState } from "react";
+import { useContext } from "react";
 
 export const User = createContext();
+
+
+//? consumer function
+export const useConsumeUser = () => {
+  return useContext(User);
+}
 
 const Auth = ({ children }) => {
   const [user, setUser] = useState(false);
