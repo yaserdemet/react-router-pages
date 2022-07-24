@@ -36,7 +36,9 @@ const InstructorDetail = () => {
   } else if (!inst) {
     return (
       <div className="text-center">
-        <h2>Data is Fetching</h2>
+         <div className="spinner-border text-dark m-5" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
       </div>
     );
   } else {
@@ -44,8 +46,9 @@ const InstructorDetail = () => {
       <div className="container text-center">
         <h3>{inst.name}</h3>
         <img
-          className="w-50"
+          className="w-25"
           src={`https://avatars.dicebear.com/v2/avataaars/${id}.svg`}
+        
           alt=""
         />
         <h4>{inst.email}</h4>
@@ -67,3 +70,4 @@ const InstructorDetail = () => {
 };
 
 export default InstructorDetail;
+
