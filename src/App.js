@@ -12,12 +12,14 @@ import FullStack from "./pages/Fullstack";
 import Aws from "./pages/Aws";
 import PrivateRouter from "./pages/PrivateRouter";
 import Auth from "./context/Auth";
+import { ToastContainer, toast } from "react-toastify";
 function App() {
   return (
     <>
 
       <Auth>
       <BrowserRouter>
+      <ToastContainer />
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

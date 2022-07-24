@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import NotFound from './NotFound';
 // import { useLocation } from 'react-router-dom';
+import {toastSuccessNotify} from "../helper/Toast"  
 
 const InstructorDetail = () => {
   //! Linkteki parametreyi almak icin useParams Hook'u kullanilabilir.
@@ -27,6 +28,7 @@ const InstructorDetail = () => {
       })
       .then((data) => setInst(data))
       .catch((err) => console.log(err));
+     
   }, [id]);
 
   console.log(inst);
@@ -43,7 +45,9 @@ const InstructorDetail = () => {
     );
   } else {
     return (
+   
       <div className="container text-center">
+          { toastSuccessNotify(`Hi 🖐 ${inst.name} is here `)}
         <h3>{inst.name}</h3>
         <img
           className="w-25"

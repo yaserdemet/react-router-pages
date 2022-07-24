@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import {toastSuccessNotify} from "../helper/Toast"
 const Instructors = () => {
   const navigate = useNavigate();
+
 
   const [instructors, setInstructors] = useState([]);
 
@@ -11,9 +13,13 @@ const Instructors = () => {
       .then((res) => res.json())
       .then((data) => setInstructors(data))
       .catch((err) => console.log(err));
+      
   };
   useEffect(() => {
     getInstructors();
+    toastSuccessNotify("Nice to see you again");
+    
+  
   }, []);
 
   return (
@@ -30,7 +36,7 @@ const Instructors = () => {
               //! Relative path
               // onClick={() => navigate(`${id}`, { state: inst })}
               //? Absolute path
-              onClick={() => navigate(`/instructors/${id}`, { state: inst })}
+              onClick={() => {navigate(`/instructors/${id}`, { state: inst })}}
               style={{ cursor: 'pointer' }}
             >
               <img
