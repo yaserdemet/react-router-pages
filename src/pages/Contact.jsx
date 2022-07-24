@@ -1,18 +1,22 @@
 import { useState } from "react";
+import { useContext } from "react";
+import {User} from "../context/Auth"
 
 const Contact = () => {
+  const {user , setUser} = useContext(User)
+  
   const [formValues, setFormValues] = useState({
     username: "",
     email: "",
     password: "",
   });
 
+  const { username, password, email } = formValues;
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, password, email } = formValues;
-    alert(`Username: ${username}
-    Email: ${email}
-    password:${password}`);
+    setUser(username)
+
+   
   };
   const handleFormValues = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });

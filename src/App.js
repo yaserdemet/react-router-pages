@@ -11,9 +11,12 @@ import Paths from "./pages/Paths";
 import FullStack from "./pages/Fullstack";
 import Aws from "./pages/Aws";
 import PrivateRouter from "./pages/PrivateRouter";
+import Auth from "./context/Auth";
 function App() {
   return (
     <>
+
+      <Auth>
       <BrowserRouter>
         <Nav />
         <Routes>
@@ -39,6 +42,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      </Auth>
     </>
   );
 }
